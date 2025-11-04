@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "name": "Dr. Ayesha Rahman",
+        "expert": "Small animal medicine & preventive care",
+        "email": "ayesha.rahman@greenpawsvet.com",
+        "education": "BVSc & AH, Dhaka Veterinary College (2012); MPhil in Clinical Veterinary Medicine (2017)",
+        "description": "10+ years treating dogs and cats with a focus on wellness plans, vaccination protocols, and chronic disease management. Gentle communicator who prioritizes client education and stress-free visits.",
+        "image": "https://i.ibb.co.com/9H7WZs1z/medium-shot-smiley-woman-checking-dog.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Dr. Michael Chen",
+        "expert": "Exotic pets & avian medicine",
+        "email": "michael.chen@cityexoticsclinic.com",
+        "education": "DVM, Cornell University College of Veterinary Medicine (2015); Fellowship in Avian Medicine (2018)",
+        "description": "Specializes in birds, reptiles, and small mammals — skilled in nutrition, behavior, and species-specific surgery. Enjoys creating tailored care plans for unusual pets.",
+        "image": "https://i.ibb.co.com/1tyLDtSd/karlo-tottoc-yb-Z5h-Rxa-WS4-unsplash.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Dr. Laila Sultana",
+        "expert": "Surgery & dermatology",
+        "email": "laila.sultana@harborpetcare.org",
+        "education": "BVSc, Bangladesh Agricultural University (2009); Residency in Veterinary Surgery (2014)",
+        "description": "Board-level surgical experience including soft-tissue and orthopedic procedures plus dermatology expertise for allergies and skin infections. Focused on minimally invasive techniques and rapid recovery.",
+        "image": "https://i.ibb.co.com/TMfgYdvZ/veterinarian-taking-care-pet-dog.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Dr. David Ortiz",
+        "expert": "Dentistry & geriatric care",
+        "email": "david.ortiz@parkviewvets.com",
+        "education": "DVM, University of California, Davis (2011); Certificate in Veterinary Dentistry (2016)",
+        "description": "Provides comprehensive dental exams, extractions, and senior-pet wellness programs. Passionate about improving quality of life for aging animals through preventive medicine and pain management.",
+        "image": "https://i.ibb.co.com/Myg82jgN/handsome-veterinarian-vet-clinic-examining-cute-black-pug-dog-pointing-finger-pet-check-up-with-stet.jpg"
+    }
+]

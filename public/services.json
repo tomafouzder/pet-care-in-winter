@@ -1,0 +1,74 @@
+[
+    {
+        "serviceId": 1,
+        "serviceName": "Winter Coat Fitting for Dogs",
+        "providerName": "PawCare Studio",
+        "providerEmail": "info@pawcare.com",
+        "price": 25,
+        "rating": 4.9,
+        "slotsAvailable": 4,
+        "description": "Custom coat fitting and warm outfit options to keep your dog comfortable in the cold.",
+        "image": "https://i.ibb.co.com/XxjWYscX/smiley-dog-playing-with-pillows.jpg",
+        "category": "Clothing"
+    },
+    {
+        "serviceId": 2,
+        "serviceName": "Heated Pet Bed Setup",
+        "providerName": "CozyPaws Comforts",
+        "providerEmail": "support@cozypaws.com",
+        "price": 40,
+        "rating": 4.8,
+        "slotsAvailable": 6,
+        "description": "Electric or thermal heated bed installation for cats and dogs to ensure warmth in winter nights.",
+        "image": "https://i.ibb.co.com/vCvGCnZ1/two-female-lovers-spending-time-with-their-boxer-camper-van-winter-trip.jpg",
+        "category": "Comfort"
+    },
+    {
+        "serviceId": 3,
+        "serviceName": "Winter Skin & Paw Care",
+        "providerName": "FurHealth Clinic",
+        "providerEmail": "care@furhealth.com",
+        "price": 20,
+        "rating": 5.0,
+        "slotsAvailable": 5,
+        "description": "Special moisturizing treatments and paw balm application to prevent dryness and cracks during cold weather.",
+        "image": "https://i.ibb.co.com/gbfSccYq/j-balla-photography-F57x-Lufncj8-unsplash.jpg",
+        "category": "Grooming"
+    },
+    {
+        "serviceId": 4,
+        "serviceName": "Warm Bath & Blow Dry Package",
+        "providerName": "FurFresh Groomers",
+        "providerEmail": "hello@furfresh.com",
+        "price": 30,
+        "rating": 4.7,
+        "slotsAvailable": 3,
+        "description": "Includes a mild hot-water bath with organic shampoo and gentle blow dry for pets to stay cozy.",
+        "image": "https://i.ibb.co.com/RTHx7mwK/professional-veterinarian-check-dog-breed-yorkshire-terrier-using-otoscope-pet-hospital.jpg",
+        "category": "Grooming"
+    },
+    {
+        "serviceId": 5,
+        "serviceName": "Winter Nutrition Consultation",
+        "providerName": "HealthyTails Vets",
+        "providerEmail": "nutrition@healthytails.com",
+        "price": 35,
+        "rating": 4.9,
+        "slotsAvailable": 5,
+        "description": "Diet consultation focusing on high-energy and immunity-boosting food for pets during cold weather.",
+        "image": "https://i.ibb.co.com/TMYbZDtY/m-burke-l1-Usj-V2-Wr-NM-unsplash.jpg",
+        "category": "Veterinary"
+    },
+    {
+        "serviceId": 6,
+        "serviceName": "Pet Winter Photography Session",
+        "providerName": "SnowPaw Studio",
+        "providerEmail": "studio@snowpaw.com",
+        "price": 45,
+        "rating": 4.8,
+        "slotsAvailable": 2,
+        "description": "Professional outdoor photoshoot with snow props and cozy winter outfits for pets.",
+        "image": "https://i.ibb.co.com/27fJkpBX/full-shot-women-dog-playing-with-toy.jpg",
+        "category": "Photography"
+    }
+]
