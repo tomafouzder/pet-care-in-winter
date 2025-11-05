@@ -1,22 +1,18 @@
 import React from 'react';
-import { Outlet } from 'react-router';
 import Navbar from '../components/Header/Navbar';
-import Footer from '../components/Footer/Footer';
+import { Outlet } from 'react-router';
 
-const HomeLayout = () => {
+const AuthLayout = () => {
     return (
         <div>
             <header className='fixed top-0 left-0 w-full z-50 bg-white shadow-md'>
-             <Navbar></Navbar>
+                <Navbar></Navbar>
             </header>
-            <main className='pt-20'>
+            <main className='min-h-screen pt-28 bg-gradient-to-br from-indigo-500 via-purple-600 to-pink-500'>
                 <Outlet></Outlet>
             </main>
-            <footer>
-                <Footer></Footer>
-            </footer>
         </div>
     );
 };
 
-export default HomeLayout;
+export default AuthLayout;

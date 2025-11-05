@@ -5,6 +5,9 @@ import ServiceCard from "../components/ServiceCard/ServiceCard";
 import CardDetails from "../components/CardDetails/CardDetails";
 import PetCareWinter from "../components/PetCareWinter/petCareWinter";
 import VetSection from "../components/VetSection/VetSection";
+import Login from "../components/AuthPages/Login";
+import Register from "../components/AuthPages/Register";
+import AuthLayout from "../Layout/AuthLayout";
 
 const router = createBrowserRouter(
     [
@@ -38,6 +41,20 @@ const router = createBrowserRouter(
                 }
             ]
         },
+        {
+            path: "/auth",
+            Component: AuthLayout,
+            children:[
+                {
+                    path:"/auth/login",
+                    Component: Login
+                },
+                {
+                    path:"/auth/register",
+                    Component: Register
+                }
+            ]
+        }
 
 
 

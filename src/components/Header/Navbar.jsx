@@ -36,7 +36,9 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn w-24 h-12 md:w-36 md:h-16 bg-orange-600 text-xl rounded-2xl text-white hover:bg-blue-950 ">Button</a>
+               
+                <Link to="/auth/login" className="btn w-24 h-12 md:w-36 md:h-16 bg-orange-600 text-xl rounded-2xl text-white hover:bg-blue-950 ">Login</Link>
+               
             </div>
         </div>
     );

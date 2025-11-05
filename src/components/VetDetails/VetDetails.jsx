@@ -5,7 +5,7 @@ const VetDetails = ({ vet }) => {
     return (
         <div className="grid grid-cols-1 lg:grid-cols-2 items-center  rounded-2xl bg-gray-900 shadow-sm">
             <figure>
-                <img className='h-96 rounded-2xl object-cover'
+                <img className='h-96 shadow-2xl rounded-2xl object-cover'
                     src={image}
                     alt="Movie" />
             </figure>
