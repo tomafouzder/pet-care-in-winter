@@ -3,6 +3,7 @@ import { Link, NavLink } from 'react-router';
 import './Navbar.css'
 import navImg from '../../assets/doggy_2.jpg'
 import { AuthContext } from '../../provider/AuthProvider';
+import iconImg from "../../assets/icons8-user-50.png"
 
 const Navbar = () => {
     const { user, logOut } = use(AuthContext)
@@ -50,6 +51,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
+                <img className='w-12 rounded-full' src={`${user ? user.photoURL : iconImg}`} alt="" />
                 {
                     user ?
                         <button onClick={handleLogOut} className="btn w-24 h-12 md:w-36 md:h-16 bg-orange-600 text-xl rounded-2xl text-white hover:bg-blue-950">

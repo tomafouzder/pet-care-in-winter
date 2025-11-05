@@ -1,26 +1,31 @@
-import React, { use } from 'react';
-import { Link } from 'react-router';
+import React, { use, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../../provider/AuthProvider';
 
 const Login = () => {
-const { signIn } = use(AuthContext)
-
-    const handleLogin = (e) => {      
+    const [error, setError] = useState("")
+    const { signIn } = use(AuthContext)
+    const location = useLocation();
+    const navigate = useNavigate()
+    console.log(location)
+    const handleLogin = (e) => {
         e.preventDefault();
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
         console.log({ email, password });
-        signIn( email, password)
+        signIn(email, password)
             .then((result) => {
                 const user = result.user;
                 console.log(user);
+                navigate(`${location.state ? location.state : "/"}`)
 
             })
             .catch((error) => {
                 const errorCode = error.code;
-                const errorMessage = error.message;
-                alert(errorCode, errorMessage);
+                // const errorMessage = error.message;
+                // alert(errorCode, errorMessage);
+                setError(errorCode)
             })
     }
 
@@ -36,6 +41,7 @@ const { signIn } = use(AuthContext)
                             name='email'
                             className="input bg-gradient-to-br from-indigo-500  to-pink-200"
                             placeholder="Email"
+                            required
                         />
                         {/* Password */}
                         <label className="label text-white">Password</label>
@@ -43,8 +49,12 @@ const { signIn } = use(AuthContext)
                             name='password'
                             className="input bg-gradient-to-br from-indigo-500  to-pink-200"
                             placeholder="Password"
-
+                            required
                         />
+
+                        {
+                            error && <p className='text-red-200'>{error}</p>
+                        }
 
                         {/* Button */}
                         <button className="btn  bg-gradient-to-br from-indigo-500 via-purple-700 to-pink-500 text-white font-semibold text-xl mt-4">Login</button>

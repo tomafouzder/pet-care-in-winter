@@ -3,13 +3,14 @@ import { useParams } from 'react-router';
 import useServices from '../../Hooks/useServices';
 import { FaStarHalfAlt } from 'react-icons/fa';
 import { FaCheckToSlot } from 'react-icons/fa6';
+import Loading from '../Loading/Loading';
 
 const CardDetails = () => {
     const { id } = useParams()
     const { services, loading } = useServices();
 
     const service = services.find(s => s.serviceId === parseInt(id))
-    if (loading) return <p>Loading....</p>
+    if (loading) return <Loading></Loading>
 
     const { serviceName,
         providerName,
