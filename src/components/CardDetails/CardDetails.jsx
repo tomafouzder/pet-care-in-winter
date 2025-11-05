@@ -22,8 +22,8 @@ const CardDetails = () => {
         category } = service || {};
 
     return (
-        <div className=" bg-base-200 min-h-screen">
-            <div>
+        <div className=" bg-base-200 pb-10 min-h-screen">
+            <div className=''>
                 <div className="text-6xl bg-gray-800 text-white py-10 text-center  font-bold">
                     {serviceName}</div>
                     <div className='pb-8 pt-4 text-center text-3xl font-bold text-gray-800'>
@@ -35,7 +35,7 @@ const CardDetails = () => {
                 <div className="hero-content flex-col lg:flex-row-reverse ">
                     <img 
                         src={image}
-                        className="max-w-sm rounded-lg shadow-2xl w-full object-cover hover:scale-105 transition ease-in-out"
+                        className="max-w-sm rounded-lg shadow-3xl w-full object-cover hover:scale-105 transition ease-in-out"
                     />
 
                     <div className='pt-10 '>

@@ -1,9 +1,23 @@
-import React from 'react';
+import React, { use } from 'react';
 import { Link, NavLink } from 'react-router';
 import './Navbar.css'
 import navImg from '../../assets/doggy_2.jpg'
+import { AuthContext } from '../../provider/AuthProvider';
 
 const Navbar = () => {
+    const { user, logOut } = use(AuthContext)
+
+    const handleLogOut = () => {
+        console.log('user trying to log out')
+        logOut()
+            .then(() => {
+                alert('You logged out successfully')
+            })
+            .catch((error) => {
+                console.log(error)
+            });
+
+    }
 
     const links = <>
         <li><NavLink to="/">Home</NavLink></li>
@@ -25,9 +39,9 @@ const Navbar = () => {
                 </div>
                 <div className=" flex justify-center items-center ">
                     <img className="w-20" src={navImg} alt="" />
-                    <p className=" text-blue-950 font-bold text-4xl">PetCare  
-                   <span className="text-xl text-orange-600 font-bold"> In winter</span>
-                    </p> 
+                    <p className=" text-blue-950 font-bold text-4xl">PetCare
+                        <span className="text-xl text-orange-600 font-bold"> In winter</span>
+                    </p>
                 </div>
             </div>
             <div className="navbar-center hidden lg:flex">
@@ -36,9 +50,15 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-               
-                <Link to="/auth/login" className="btn w-24 h-12 md:w-36 md:h-16 bg-orange-600 text-xl rounded-2xl text-white hover:bg-blue-950 ">Login</Link>
-               
+                {
+                    user ?
+                        <button onClick={handleLogOut} className="btn w-24 h-12 md:w-36 md:h-16 bg-orange-600 text-xl rounded-2xl text-white hover:bg-blue-950">
+                            LogOut</button>
+                        :
+                        <Link to="/auth/login" className="btn w-24 h-12 md:w-36 md:h-16 bg-orange-600 text-xl rounded-2xl text-white hover:bg-blue-950 ">Login</Link>
+                }
+
+
             </div>
         </div>
     );

@@ -8,6 +8,8 @@ import VetSection from "../components/VetSection/VetSection";
 import Login from "../components/AuthPages/Login";
 import Register from "../components/AuthPages/Register";
 import AuthLayout from "../Layout/AuthLayout";
+import MyProfile from "../components/MyProfile/MyProfile";
+import PrivateRoute from "../provider/PrivateRoute";
 
 const router = createBrowserRouter(
     [
@@ -25,32 +27,36 @@ const router = createBrowserRouter(
                 },
                 {
                     path: "/profile",
-                    element: <h3>Profile</h3>
+                    Component: MyProfile
                 },
                 {
                     path: "/cardDetails/:id",
-                    Component: CardDetails
+                    element: (
+                        <PrivateRoute>
+                            <CardDetails></CardDetails>
+                        </PrivateRoute>
+                    )
                 },
                 {
-                    path:"/petCareWinter",
+                    path: "/petCareWinter",
                     Component: PetCareWinter
                 },
                 {
-                    path:"/vetSection",
-                    Component:VetSection
+                    path: "/vetSection",
+                    Component: VetSection
                 }
             ]
         },
         {
             path: "/auth",
             Component: AuthLayout,
-            children:[
+            children: [
                 {
-                    path:"/auth/login",
+                    path: "/auth/login",
                     Component: Login
                 },
                 {
-                    path:"/auth/register",
+                    path: "/auth/register",
                     Component: Register
                 }
             ]
