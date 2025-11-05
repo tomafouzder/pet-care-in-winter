@@ -2,6 +2,7 @@ import React, { use, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../../provider/AuthProvider';
 
+
 const Login = () => {
     const [error, setError] = useState("")
     const { signIn } = use(AuthContext)
@@ -71,12 +72,10 @@ const Login = () => {
                                 Dnt't have an account ?
                                 <Link className="   underline" to="/auth/register">  Register/Signup</Link>
                             </p>
-
                         </div>
-
-
                     </fieldset>
                 </form>
+                
             </div>
         </div>
     );

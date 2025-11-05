@@ -92,6 +92,7 @@ const Register = () => {
                     </fieldset>
                 </form>
             </div>
+            
         </div>
     );
 };

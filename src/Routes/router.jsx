@@ -10,6 +10,7 @@ import Register from "../components/AuthPages/Register";
 import AuthLayout from "../Layout/AuthLayout";
 import MyProfile from "../components/MyProfile/MyProfile";
 import PrivateRoute from "../provider/PrivateRoute";
+import GoogleLogin from "../components/GoogleLogin/GoogleLogin";
 
 const router = createBrowserRouter(
     [
@@ -58,6 +59,10 @@ const router = createBrowserRouter(
                 {
                     path: "/auth/register",
                     Component: Register
+                },
+                {
+                    path: "/auth/google",
+                    Component:GoogleLogin
                 }
             ]
         }
