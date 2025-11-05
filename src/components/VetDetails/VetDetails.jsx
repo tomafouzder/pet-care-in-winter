@@ -13,7 +13,7 @@ const VetDetails = ({ vet }) => {
                 <h2 className="text-4xl p-4 font-bold text-white ">{name}</h2>
                 <div>
                     <h2 className="text-2xl px-4 font-semibold text-gray-200 "><span className='text-white'>Expert :</span> {expert}</h2>
-                    <h2 className="text-2xl py-2 px-4 font-semibold text-gray-200 border-b-2 "><span className='text-white'>Email :</span> {email}</h2>
+                    <h2 className="text-xl py-2 px-4 font-semibold text-gray-200 border-b-2 "><span className='text-white'>Email :</span> {email}</h2>
                 </div>
                 <p className='text-xl p-4 font-semibold text-gray-300'><span className='text-white text-2xl'>Education :</span> {education}</p>
                 <p className='text-xl pb-4 px-4 font-semibold text-gray-300'><span className='text-white text-2xl'>Description :</span> {description}</p>
