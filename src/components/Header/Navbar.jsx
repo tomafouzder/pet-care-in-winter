@@ -36,8 +36,19 @@ const Navbar = () => {
                         tabIndex="-1"
                         className="menu menu-sm dropdown-content bg-base-100  rounded-box z-1 mt-3 w-52 p-2 shadow">
                         {links}
+                        <li className='mt-2'>
+                            {
+                                user ?
+                                    <button onClick={handleLogOut} className="">
+                                        LogOut</button>
+                                    :
+                                    <Link to="/auth/login" className="">Login</Link>
+                            }
+                        </li>
                     </ul>
                 </div>
+
+                {/* ................logo............... */}
                 <div className=" flex justify-center items-center ">
                     <img className="w-20" src={navImg} alt="" />
                     <p className=" text-blue-950 font-bold text-4xl">PetCare
@@ -50,17 +61,54 @@ const Navbar = () => {
                     {links}
                 </ul>
             </div>
+
+            {/* ....................Navbar end */}
             <div className="navbar-end">
-                <img className='w-12 rounded-full' src={`${user ? user.photoURL : iconImg}`} alt="" />
-                {
-                    user ?
-                        <button onClick={handleLogOut} className="btn w-24 h-12 md:w-36 md:h-16 bg-orange-600 text-xl rounded-2xl text-white hover:bg-blue-950">
-                            LogOut</button>
-                        :
-                        <Link to="/auth/login" className="btn w-24 h-12 md:w-36 md:h-16 bg-orange-600 text-xl rounded-2xl text-white hover:bg-blue-950 ">Login</Link>
-                }
 
+                {/* only for sm screen */}
+                <div className='block md:hidden'>
+                    {
+                        !user ? (<Link to="/auth/login" className="btn w-24 h-12 md:w-36 md:h-16 bg-orange-600 text-xl rounded-2xl text-white hover:bg-blue-950 ">Login</Link>)
+                            :
+                            (<div className='relative group'>
+                                <img className='w-12 rounded-full'
+                                    src={`${user ? user.photoURL : iconImg}`}
+                                    alt="User Avatar" />
 
+                                {
+                                    user && (
+                                        <span className='absolute left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block bg-gray-800 text-white text-sm px-2 py-1 rounded-md whitespace-nowrap shadow-md'>
+                                            {user.displayName || "No Name"}
+                                        </span>
+                                    )
+                                }
+                            </div>)
+                    }
+                </div>
+
+                {/* md and lg screen */}
+                <div className=' hidden md:flex'>
+                    <div className='relative group'>
+                        <img className='w-12 rounded-full'
+                            src={`${user ? user.photoURL : iconImg}`}
+                            alt="User Avatar" />
+
+                        {
+                            user && (
+                                <span className='absolute left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block bg-gray-800 text-white text-sm px-2 py-1 rounded-md whitespace-nowrap shadow-md'>
+                                    {user.displayName || "No Name"}
+                                </span>
+                            )
+                        }
+                    </div>
+                    {
+                        user ?
+                            <button onClick={handleLogOut} className="btn w-24 h-12 md:w-36 md:h-16 bg-orange-600 text-xl rounded-2xl text-white hover:bg-blue-950">
+                                LogOut</button>
+                            :
+                            <Link to="/auth/login" className="btn w-24 h-12 md:w-36 md:h-16 bg-orange-600 text-xl rounded-2xl text-white hover:bg-blue-950 ">Login</Link>
+                    }
+                </div>
             </div>
         </div>
     );
