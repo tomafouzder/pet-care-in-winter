@@ -1,6 +1,13 @@
 .menu {
     text-decoration: underline;
-    color: blue;
+    color: orangered;
     font-size: large;
     font-weight: 700;
+
+}
+
+.menu li {
+    border: 2px solid orangered;
+    border-radius: 20px;
+    margin-left: 4px;
 }

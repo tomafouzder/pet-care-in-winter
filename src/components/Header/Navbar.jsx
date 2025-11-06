@@ -36,7 +36,7 @@ const Navbar = () => {
                         tabIndex="-1"
                         className="menu menu-sm dropdown-content bg-base-100  rounded-box z-1 mt-3 w-52 p-2 shadow">
                         {links}
-                        <li className='mt-2'>
+                        <li className=''>
                             {
                                 user ?
                                     <button onClick={handleLogOut} className="">
@@ -89,7 +89,7 @@ const Navbar = () => {
                 {/* md and lg screen */}
                 <div className=' hidden md:flex'>
                     <div className='relative group'>
-                        <img className='w-12 rounded-full'
+                        <img className='w-12 mr-2 rounded-full'
                             src={`${user ? user.photoURL : iconImg}`}
                             alt="User Avatar" />
 

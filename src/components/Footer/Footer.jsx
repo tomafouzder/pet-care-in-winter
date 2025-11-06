@@ -5,9 +5,9 @@ import { IoCallOutline } from 'react-icons/io5';
 
 const Footer = () => {
     return (
-        <footer className=" bg-gray-800 mt-10 p-10">
-            <div className='max-w-6xl mx-auto'>
-                <div className='flex flex-col lg:flex-row md:text-center  justify-between gap-10 text-base-center pt-5 items-center">
+        <footer className=" bg-gray-800 p-10">
+            <div className='max-w-7xl mx-auto'>
+                <div className='flex flex-col lg:flex-row justify-around gap-10  text-base-center pt-5 items-center">
                     '>
                     <div>
                         {/* <h6 className="footer-title">Services</h6> */}
@@ -17,23 +17,20 @@ const Footer = () => {
                                 <span className="text-xl text-orange-600 font-bold"> In winter</span>
                             </p>
                         </div>
-                        <div>
-                            <p className="font-semibold text-white text-lg pt-4 ">Visit Our Website</p>
-                            <p className="font-medium text-white">Best pet care service in our community</p>
-                        </div>
+                       
                     </div>
                     <div>
-                        <h6 className=" text-white font-bold text-lg">Company</h6>
-                        <a className="link text-white py-2 text-lg font-medium link-hover">About us &</a>
+                        <p className=" text-white font-bold justify-center flex text-xl border-b">Company</p>
+                        <p className="link text-white py-2 justify-center flex text-lg font-medium link-hover">About us </p>
 
-                        <a className=" text-white text-lg  font-medium"> Contact us</a>
+                        <p className=" text-white text-lg justify-center flex  font-medium"> Contact us</p>
                         <a className="link text-white  justify-center flex gap-1 items-center text-lg font-medium py-2 link-hover"><IoCallOutline />+880 (000)(000)(0000)</a>
 
                         <a className="link text-white justify-center flex gap-1 items-center text-lg font-medium link-hover"><MdOutlineAttachEmail />Email:petcare@web.com</a>
 
                     </div>
                     <div>
-                        <h6 className="text-white font-bold text-lg">Social</h6>
+                        <p className="text-white border-b font-bold justify-center flex text-lg">Social</p>
                         <div className=" text-white mt-2">
                             <a className=' flex items-center justify-center text-lg font-semibold gap-2'>
                                 <svg

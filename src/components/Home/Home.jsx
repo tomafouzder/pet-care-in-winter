@@ -25,7 +25,7 @@ const Home = () => {
             </div>
 
 
-            <div>
+            <div className='bg-base-200'>
                 <PetCareWinter></PetCareWinter>
             </div>
         </div>
