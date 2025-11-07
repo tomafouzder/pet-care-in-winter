@@ -1,6 +1,7 @@
 import React, { use } from 'react';
 import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../../provider/AuthProvider';
+import GoogleLogin from '../GoogleLogin/GoogleLogin';
 
 
 const Register = () => {
@@ -81,18 +82,33 @@ const Register = () => {
 
                         {/* button */}
                         <button type='submit' className="btn  bg-gradient-to-br from-indigo-500 via-purple-700 to-pink-500 text-white font-semibold text-xl mt-4">Register</button>
-                        <div>
-                            <p className="font-medium text-lg">
-                                Have an account ? please {' '}
-                                <Link className=" text-white underline" to="/auth/login">  Login</Link>
-                            </p>
-                        </div>
-
 
                     </fieldset>
                 </form>
+                
+                {/* ...................................... */}
+
+                <div className='px-6'>
+                    {/* Divider horizontal */}
+                    <div className="flex w-full flex-col">
+                        <div className="divider divider-neutral">OR</div>
+                    </div>
+
+                    {/*  google */}
+                    <div className='text-center'>
+                        <GoogleLogin></GoogleLogin>
+                    </div>
+
+                    {/* Have an account */}
+                    <div>
+                        <p className="font-medium pt-1 text-lg">
+                            Have an account ? please {' '}
+                            <Link className=" text-white underline" to="/auth/login">  Login</Link>
+                        </p>
+                    </div>
+                </div>
             </div>
-            
+
         </div>
     );
 };

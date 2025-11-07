@@ -1,6 +1,7 @@
 import React, { use, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../../provider/AuthProvider';
+import GoogleLogin from '../GoogleLogin/GoogleLogin';
 
 
 const Login = () => {
@@ -59,23 +60,35 @@ const Login = () => {
 
                         {/* Button */}
                         <button className="btn  bg-gradient-to-br from-indigo-500 via-purple-700 to-pink-500 text-white font-semibold text-xl mt-4">Login</button>
-                        <div className='text-white mt-4'>
 
-                            {/* forget password */}
-                            <p className="font-medium  text-lg">
-                                Forgot password?
-                                <Link className="  underline" to="/auth/register">  Reset password</Link>
-                            </p>
-
-                            {/* Register */}
-                            <p className="font-medium text-lg">
-                                Dnt't have an account ?
-                                <Link className="   underline" to="/auth/register">  Register/Signup</Link>
-                            </p>
-                        </div>
+                        {/* forget password */}
+                        <p className="font-medium  text-lg">
+                            Forgot password?
+                            <Link className=" underline" to="/auth/register">  Reset password</Link>
+                        </p>
                     </fieldset>
                 </form>
-                
+
+                <div className='text-white px-6'>
+
+                    {/* Divider horizontal */}
+                    <div className="flex w-full flex-col">
+                        <div className="divider divider-neutral">OR</div>
+                    </div>
+
+                    {/* google  */}
+                    <div className='text-center '>
+                        <GoogleLogin></GoogleLogin>
+                    </div>
+
+                    {/* Register */}
+                    <p className="font-medium text-lg pt-2">
+                        Dnt't have an account ?
+                        <Link className=" underline" to="/auth/register">  Register/Signup</Link>
+                    </p>
+                </div>
+
+
             </div>
         </div>
     );
