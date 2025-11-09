@@ -22,17 +22,17 @@ const Login = () => {
          }
     }, [user, navigate])
 
-    console.log(location)
+    
     const handleLogin = (e) => {
         e.preventDefault();
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log({ email, password });
+        // console.log({ email, password });
         signIn(email, password)
             .then((result) => {
                 const user = result.user;
-                console.log(user);
+                // console.log(user);
                 navigate(`${location.state ? location.state : "/"}`)
 
             })
@@ -47,7 +47,7 @@ const Login = () => {
 
     const handleForgetPassword = (e) => {
         const email = emailRef.current.value;
-        console.log(email);
+        
 
         resetPassword(email)
             .then(() => {

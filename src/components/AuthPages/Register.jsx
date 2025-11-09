@@ -18,13 +18,13 @@ const Register = () => {
 
     const handleRegister = (e) => {
         e.preventDefault();
-        console.log(e.target)
+        // console.log(e.target)
         const form = e.target;
         const name = form.name.value;
         const email = form.email.value;
         const photo = form.photo.value;
         const password = form.password.value;
-        console.log({ name, email, photo, password });
+        // console.log({ name, email, photo, password });
 
         const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>]).{6,}$/;
         if (!passwordRegex.test(password)) {

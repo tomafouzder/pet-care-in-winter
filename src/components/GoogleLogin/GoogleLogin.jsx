@@ -16,7 +16,7 @@ const GoogleLogin = () => {
         googleSignIn()
             .then((result) => {
                 const user = result.user;
-                console.log(user);
+                // console.log(user);
                 navigate(`${location.state ? location.state : "/"}`)
 
             })

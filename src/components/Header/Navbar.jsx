@@ -10,7 +10,7 @@ const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
 
     const handleLogOut = () => {
-        console.log('user trying to log out')
+        // console.log('user trying to log out')
         logOut()
             .then(() => {
                 toast.success('You logged out successfully')
