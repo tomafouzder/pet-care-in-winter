@@ -1,13 +1,19 @@
-import React, { use } from 'react';
+import React, { use, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../../provider/AuthProvider';
 import GoogleLogin from '../GoogleLogin/GoogleLogin';
+import toast from 'react-hot-toast';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 
 const Register = () => {
-
-    const { createUser, setUser, updateUserProfile } = use(AuthContext)
+    const [show, setShow] = useState(false);
+    const { user, createUser, setUser, updateUserProfile } = use(AuthContext)
     const navigate = useNavigate();
+
+    useEffect(() => {
+        if (user) { navigate("/"); }
+    }, [user, navigate])
 
 
     const handleRegister = (e) => {
@@ -19,6 +25,15 @@ const Register = () => {
         const photo = form.photo.value;
         const password = form.password.value;
         console.log({ name, email, photo, password });
+
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>]).{6,}$/;
+        if (!passwordRegex.test(password)) {
+            toast.error(
+                "Password must be at least 6 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character."
+            );
+            return;
+        }
+
         createUser(email, password)
             .then((result) => {
                 const user = result.user;
@@ -34,12 +49,13 @@ const Register = () => {
 
             })
             .catch((error) => {
-                const errorCode = error.code;
+                // const errorCode = error.code;
                 const errorMessage = error.message;
-                alert(errorMessage);
+                toast.error(errorMessage);
             })
 
     }
+
 
     return (
         <div className="flex justify-center min-h-screen w-11/12 bg- mx-auto rounded-2xl items-center bg-gradient-to-br from-indigo-500 via-purple-700 to-pink-500">
@@ -73,19 +89,24 @@ const Register = () => {
                             placeholder="Photo URL" />
 
                         {/* Password */}
-                        <label className="label text-white">Password</label>
-                        <input type="password"
-                            name='password'
-                            className="input bg-gradient-to-br from-indigo-500  to-pink-200 "
-                            required
-                            placeholder="Password" />
+                        <div className='relative'>
+                            <label className="label text-white">Password</label>
+                            <input type={show ? "text" : "password"}
+                                name='password'
+                                className="input bg-gradient-to-br from-indigo-500  to-pink-200 "
+                                required
+                                placeholder="Password" />
+                            <span onClick={() => setShow(!show)} className='absolute right-6 top-10 cursor-pointer z-50'>
+                                {show ? <FaEye /> : <FaEyeSlash />}
+                            </span>
+                        </div>
 
                         {/* button */}
                         <button type='submit' className="btn  bg-gradient-to-br from-indigo-500 via-purple-700 to-pink-500 text-white font-semibold text-xl mt-4">Register</button>
 
                     </fieldset>
                 </form>
-                
+
                 {/* ...................................... */}
 
                 <div className='px-6'>

@@ -1,29 +1,30 @@
-import React, { use } from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router';
 import './Navbar.css'
 import navImg from '../../assets/doggy_2.jpg'
 import { AuthContext } from '../../provider/AuthProvider';
 import iconImg from "../../assets/icons8-user-50.png"
+import toast from 'react-hot-toast';
 
 const Navbar = () => {
-    const { user, logOut } = use(AuthContext)
+    const { user, logOut } = useContext(AuthContext);
 
     const handleLogOut = () => {
         console.log('user trying to log out')
         logOut()
             .then(() => {
-                alert('You logged out successfully')
+                toast.success('You logged out successfully')
             })
             .catch((error) => {
-                console.log(error)
+                toast.error(error.message)
             });
 
     }
 
     const links = <>
-        <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="/services">Services</NavLink></li>
-        <li><NavLink to="/profile">My Profile</NavLink></li>
+        <li><NavLink className={({ isActive }) => (isActive ? "text-white  bg-orange-600" : " hover:bg-blue-950")} to="/">Home</NavLink></li>
+        <li><NavLink className={({ isActive }) => (isActive ? "text-white  bg-orange-600" : " hover:bg-blue-950")} to="/services">Services</NavLink></li>
+       {user && <li><NavLink className={({ isActive }) => (isActive ? "text-white  bg-orange-600" : " hover:bg-blue-950")} to="/profile">My Profile</NavLink></li>}
     </>
     return (
         <div className="navbar bg-base-100 shadow-sm">
@@ -42,7 +43,7 @@ const Navbar = () => {
                                     <button onClick={handleLogOut} className="">
                                         LogOut</button>
                                     :
-                                    <Link to="/auth/login" className="">Login</Link>
+                                    <NavLink className={({ isActive }) => (isActive ? "text-white  bg-orange-600" : " hover:bg-blue-950 text-orange-600")} to="/auth/login">Login</NavLink>
                             }
                         </li>
                     </ul>
@@ -72,13 +73,14 @@ const Navbar = () => {
                             :
                             (<div className='relative group'>
                                 <img className='w-12 rounded-full'
-                                    src={`${user ? user.photoURL : iconImg}`}
+                                    src={user?.photoURL || iconImg}
                                     alt="User Avatar" />
 
                                 {
                                     user && (
-                                        <span className='absolute left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block bg-gray-800 text-white text-sm px-2 py-1 rounded-md whitespace-nowrap shadow-md'>
-                                            {user.displayName || "No Name"}
+                                        <span className='absolute left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block bg-gray-800 text-white text-sm rounded-md whitespace-nowrap shadow-md text-center p-2'>
+                                            <p>{user.displayName || "No Name"}</p>
+                                            <p>{user.email || "No Name"}</p>
                                         </span>
                                     )
                                 }
@@ -90,13 +92,14 @@ const Navbar = () => {
                 <div className=' hidden md:flex'>
                     <div className='relative group'>
                         <img className='w-12 mr-2 rounded-full'
-                            src={`${user ? user.photoURL : iconImg}`}
+                            src={user?.photoURL || iconImg}
                             alt="User Avatar" />
 
                         {
                             user && (
-                                <span className='absolute left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block bg-gray-800 text-white text-sm px-2 py-1 rounded-md whitespace-nowrap shadow-md'>
-                                    {user.displayName || "No Name"}
+                                <span className='absolute left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block bg-gray-800 text-white text-sm rounded-md whitespace-nowrap shadow-md text-center p-2'>
+                                    <p>{user.displayName || "No Name"}</p>
+                                    <p>{user.email || "No Name"}</p>
                                 </span>
                             )
                         }

@@ -28,7 +28,11 @@ const router = createBrowserRouter(
                 },
                 {
                     path: "/profile",
-                    Component: MyProfile
+                    element: (
+                        <PrivateRoute>
+                            <MyProfile />
+                        </PrivateRoute>
+                    )
                 },
                 {
                     path: "/cardDetails/:id",
@@ -62,7 +66,7 @@ const router = createBrowserRouter(
                 },
                 {
                     path: "/auth/google",
-                    Component:GoogleLogin
+                    Component: GoogleLogin
                 }
             ]
         }

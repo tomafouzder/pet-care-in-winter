@@ -1,14 +1,27 @@
-import React, { use, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../../provider/AuthProvider';
 import GoogleLogin from '../GoogleLogin/GoogleLogin';
+import toast from 'react-hot-toast';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
+
 
 
 const Login = () => {
+    const [show, setShow] = useState(false);
     const [error, setError] = useState("")
-    const { signIn } = use(AuthContext)
+    const { user, signIn, resetPassword } = useContext(AuthContext)
     const location = useLocation();
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+
+    const emailRef = useRef(null);
+
+    useEffect(() => {
+        if (user) {
+             navigate("/");
+         }
+    }, [user, navigate])
+
     console.log(location)
     const handleLogin = (e) => {
         e.preventDefault();
@@ -25,10 +38,25 @@ const Login = () => {
             })
             .catch((error) => {
                 const errorCode = error.code;
-                // const errorMessage = error.message;
-                // alert(errorCode, errorMessage);
-                setError(errorCode)
+                const errorMessage = error.message;
+                setError(errorCode);
+                toast.error(errorMessage);
+
             })
+    }
+
+    const handleForgetPassword = (e) => {
+        const email = emailRef.current.value;
+        console.log(email);
+
+        resetPassword(email)
+            .then(() => {
+                toast.success("Check your email and reset password");
+            })
+            .catch((error) => {
+                toast.error(error.message);
+            })
+
     }
 
     return (
@@ -41,18 +69,24 @@ const Login = () => {
                         <label className="label text-white">Email</label>
                         <input type="email"
                             name='email'
+                            ref={emailRef}
                             className="input bg-gradient-to-br from-indigo-500  to-pink-200"
                             placeholder="Email"
                             required
                         />
                         {/* Password */}
-                        <label className="label text-white">Password</label>
-                        <input type="password"
-                            name='password'
-                            className="input bg-gradient-to-br from-indigo-500  to-pink-200"
-                            placeholder="Password"
-                            required
-                        />
+                        <div className='relative'>
+                            <label className="label text-white">Password</label>
+                            <input type={show ? "text" : "password"}
+                                name='password'
+                                className="input bg-gradient-to-br from-indigo-500  to-pink-200"
+                                placeholder="Password"
+                                required
+                            />
+                            <span onClick={() => setShow(!show)} className='absolute right-6 top-10 cursor-pointer z-50'>
+                                {show ? <FaEye /> : <FaEyeSlash />}
+                            </span>
+                        </div>
 
                         {
                             error && <p className='text-red-200'>{error}</p>
@@ -64,7 +98,11 @@ const Login = () => {
                         {/* forget password */}
                         <p className="font-medium  text-lg">
                             Forgot password?
-                            <Link className=" underline" to="/auth/register">  Reset password</Link>
+                            <button
+                                onClick={handleForgetPassword}
+                                className=" underline cursor-pointer"
+                                type='button'
+                            >  Reset password</button>
                         </p>
                     </fieldset>
                 </form>
