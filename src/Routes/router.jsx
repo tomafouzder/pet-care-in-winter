@@ -11,12 +11,14 @@ import AuthLayout from "../Layout/AuthLayout";
 import MyProfile from "../components/MyProfile/MyProfile";
 import PrivateRoute from "../provider/PrivateRoute";
 import GoogleLogin from "../components/GoogleLogin/GoogleLogin";
+import ErrorPage from "../components/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter(
     [
         {
             path: "/",
             Component: HomeLayout,
+            errorElement:<ErrorPage/>,
             children: [
                 {
                     index: true,

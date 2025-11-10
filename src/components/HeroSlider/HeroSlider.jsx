@@ -65,18 +65,11 @@ const HeroSlider = () => {
                 onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
                 className='mySwiper rounded-2xl lg:rounded-none shadow-2xl'
 
-
-                breakpoints={{
-                    320: { slidesPerView: 1 },
-                    760: { slidesPerView: 2 },
-                    1024: { slidesPerView: 1 },
-                }}
-
             >
 
                 {slides.map((slide, index) => (
                     <SwiperSlide key={index}>
-                        <div className="relative w-full h-[500px] overflow-hidden rounded-2xl lg:rounded-none">
+                        <div className="relative w-full h-[550px] overflow-hidden rounded-2xl lg:rounded-none">
                             {/* Image full cover */}
                             <img
                                 src={slide.image}
@@ -85,7 +78,7 @@ const HeroSlider = () => {
                             />
 
                             {/* Text Overlay with Animation */}
-                            <div className={`absolute right-3/5 inset-0 bg-black/40  flex flex-col justify-center items-center  text-white text-center p-5
+                            <div className={`absolute right-1/2 md:right-3/5  inset-0 bg-black/40  flex flex-col justify-center rounded-r-full items-center  text-white text-center p-5
                                 
                                 ${activeIndex === index ? 'animate__animated animate__fadeInLeft  animate__delay-2s' : ''}
                                 `}>
