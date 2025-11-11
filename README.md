@@ -1,17 +1,33 @@
-#[Pet-Care-In-Winter](https://pet-care-in-winter001.netlify.app/)
-# React + Vite
+# Pet Care Web Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Project Name
+**Pet Care Website**
+**Pet Care In Winter**
 
-Currently, two official plugins are available:
+## Purpose
+This project is a responsive and interactive per care web application designed to help per owners explore services, book veterinary care, and purchase per products . It provides detailed service information, customer booking functionality , and engaging visuals to improve user experience. ---->
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Live URL
+[Your Live URL Here](https://your-live-site-url.com)
 
-## React Compiler
+## Key Features
+- **Responsive Design**: Works seamlessly on mobile, tablet, and desktop devices.
+- **Service Listing & Details**: Browse pet care services with detailed descriptions, images, and ratings.
+- **Booking System**: Users can book services through a form with real-time validations and **toast notifications** for success and error messages.
+- **Hero Slider**: Engaging **Swiper slider** with animated text overlays using **Framer Motion** and **Animate.css**.
+- **Pet Products Section**: Showcase of pet food, toys, and bath products with images, prices, and descriptions.
+- **Firebase Integration**: For authentication, data management, or real-time updates.
+- **Interactive Animations**: Smooth animations on sliders, buttons, and page elements using **Animate.css** and **Framer Motion**.
+- **Toast Notifications**: Instant feedback for booking and form interactions using **react-hot-toast**.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Technologies & Libraries Used
+- **JavaScript (ES6+)**
+- **React.js** for frontend UI
+- **Firebase** for backend services (authentication, database)
+- **Swiper** for image sliders/carousels
+- **React Hot Toast** for notifications
+- **Animate.css** for animation effects
+- **Framer Motion** for advanced animations
+- **Tailwind CSS** (assumed from your code) for styling
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
