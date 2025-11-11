@@ -1,13 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router';
 import useServices from '../../Hooks/useServices';
 import { FaStarHalfAlt } from 'react-icons/fa';
 import { FaCheckToSlot } from 'react-icons/fa6';
 import Loading from '../Loading/Loading';
+import toast from 'react-hot-toast';
 
 const CardDetails = () => {
     const { id } = useParams()
     const { services, loading } = useServices();
+    const [formData, setFormDate] = useState({
+        name: '',
+        email: '',
+    });
+
 
     const service = services.find(s => s.serviceId === parseInt(id))
     if (loading) return <Loading></Loading>
@@ -22,19 +28,40 @@ const CardDetails = () => {
         image,
         category } = service || {};
 
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormDate((prev) => ({ ...prev, [name]: value }))
+    };
+
+    const handleBookService = (e) => {
+        e.preventDefault();
+        if (!formData.name || !formData.email) {
+            toast.error("Please fill all fields")
+            return;
+        }
+        toast.success('Service booked successfully.')
+
+        setFormDate({
+            name: '',
+            email: '',
+        });
+    };
+
+
     return (
         <div className=" bg-base-200 pb-10 min-h-screen">
             <div className=''>
                 <div className="text-6xl bg-gray-800 text-white py-10 text-center  font-bold">
                     {serviceName}</div>
-                    <div className='pb-8 pt-4 text-center text-3xl font-bold text-gray-800'>
-                        <p>Price : $ {price}</p>
-                         <p className='flex items-center mt-2 text-lg border-y-2 border-gray-100 justify-center text-gray-500 p-1  pl-2 gap-2'>Rating:  <FaStarHalfAlt /> { rating}</p>
-                         <p className='flex items-center mt-2 text-lg border-y-2 border-gray-100 justify-center text-gray-500 p-1  pl-2 gap-2'>SlotsAvailable:  <FaCheckToSlot /> { slotsAvailable}</p>
-                    </div>
+                <div className='pb-8 pt-4 text-center text-3xl font-bold text-gray-800'>
+                    <p>Price : $ {price}</p>
+                    <p className='flex items-center mt-2 text-lg border-y-2 border-gray-100 justify-center text-gray-500 p-1  pl-2 gap-2'>Rating:  <FaStarHalfAlt /> {rating}</p>
+                    <p className='flex items-center mt-2 text-lg border-y-2 border-gray-100 justify-center text-gray-500 p-1  pl-2 gap-2'>SlotsAvailable:  <FaCheckToSlot /> {slotsAvailable}</p>
+                </div>
 
                 <div className="hero-content flex-col lg:flex-row-reverse ">
-                    <img 
+                    <img
                         src={image}
                         className="max-w-sm rounded-lg shadow-3xl w-full object-cover hover:scale-105 transition ease-in-out"
                     />
@@ -59,18 +86,30 @@ const CardDetails = () => {
                         <div className="card-body">
                             <h1 className="text-3xl font-bold">Book Our Service</h1>
 
-                            <form >
+                            <form onSubmit={handleBookService} >
                                 <fieldset className="fieldset">
                                     {/* Name */}
                                     <label className="label text-lg font-medium">Name</label>
-                                    <input type="text"
+
+                                    <input
+                                        type="text"
+                                        name='name'
+                                        value={formData.name}
+                                        onChange={handleChange}
                                         className="input text-black"
                                         placeholder="Your Name" />
+
                                     {/* Email */}
                                     <label className="label text-lg font-medium">Email</label>
-                                    <input type="email"
+
+                                    <input
+                                        type="email"
+                                        name='email'
+                                        value={formData.email}
+                                        onChange={handleChange}
                                         className="input text-black"
-                                        placeholder="Email" />
+                                        placeholder="Email"
+                                    />
 
                                     <button className="btn bg-blue-950 text-white text-lg p-6 hover:bg-orange-600 mt-4">Book Service</button>
                                 </fieldset>

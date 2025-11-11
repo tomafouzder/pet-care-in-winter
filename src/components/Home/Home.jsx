@@ -4,12 +4,13 @@ import AllServices from '../AllServices/AllServices';
 import useServices from '../../Hooks/useServices';
 import 'animate.css';
 import PetCareWinter from '../PetCareWinter/petCareWinter';
+import ShopProducts from '../ShopProducts/ShopProducts';
 
 const Home = () => {
     const { services, loading, error } = useServices()
 
     return (
-        <div className='bg-white'>
+        <div className='bg-base-100'>
             <HeroSlider></HeroSlider>
             <div className='text-center pt-16'>
                 <h1 className='text-7xl text-blue-950 hover:text-orange-600 font-extrabold hover:scale-115 transition ease-in-out animate__animated animate__fadeInDown'>Popular Winter Care Services
@@ -27,6 +28,10 @@ const Home = () => {
 
             <div className='bg-base-200'>
                 <PetCareWinter></PetCareWinter>
+            </div>
+
+            <div className='bg-base-200  '>
+                <ShopProducts></ShopProducts>
             </div>
         </div>
     );

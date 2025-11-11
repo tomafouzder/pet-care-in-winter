@@ -12,6 +12,7 @@ import MyProfile from "../components/MyProfile/MyProfile";
 import PrivateRoute from "../provider/PrivateRoute";
 import GoogleLogin from "../components/GoogleLogin/GoogleLogin";
 import ErrorPage from "../components/ErrorPage/ErrorPage";
+import ShopProducts from "../components/ShopProducts/ShopProducts";
 
 const router = createBrowserRouter(
     [
@@ -51,6 +52,10 @@ const router = createBrowserRouter(
                 {
                     path: "/vetSection",
                     Component: VetSection
+                },
+                {
+                    path:"/shopProducts",
+                    Component:ShopProducts
                 }
             ]
         },
